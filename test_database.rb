@@ -41,6 +41,22 @@ class TestDatabase < Test::Unit::TestCase
  		assert_equal (@db.display_attribute("notes")), ["notes", "Yeah!"]
 
 	end 
+
+	#def test_modify2
+	#	@db.add(@contact2)
+	#	@db.modify("firstname", "John")
+	#	assert_equal (@db.contacts[0]).firstname, "John"
+
+	#end
+
+	def test_modify
+		@db.add(@contact1)
+		@db.add(@contact2)
+
+		contact = @db.find("Apoorv")
+		@db.modify(contact, "firstname", "John")
+		assert_equal @contact2.firstname, "John"
+	end
 end
 
 

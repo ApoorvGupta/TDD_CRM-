@@ -37,4 +37,37 @@ class Database
 		results  
 
 	end 
+
+	#def modify2(attribute, modification)
+
+	#	@contacts.each do |contact|
+	#			contact.send(attribute + "=", modification)
+	#	end
+	#end
+
+	def modify(contact, attribute, modification)
+		@contacts.each do |profile|
+			if profile == contact
+				contact.send(attribute + "=", modification)
+				break
+			end
+		end
+	end
+
+	def find(detail)
+
+		@contacts.each do |contact|
+			if (contact.firstname).include? (detail)
+				return contact
+			elsif (contact.lastname).include? (detail)
+				return contact
+			elsif (contact.email).include? (detail)
+				return contact
+			elsif (contact.notes).include? (detail)
+				return contact
+			end
+		end
+	end
+
+
 end
