@@ -9,4 +9,8 @@ class Database
 	def add(contact)
 		@contacts << contact
 	end
+
+	def total_contacts 
+		@contacts.length
+	end
 end
