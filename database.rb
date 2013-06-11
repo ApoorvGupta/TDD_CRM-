@@ -10,6 +10,10 @@ class Database
 		@contacts << contact
 	end
 
+	def delete(contact)
+		@contacts.delete(contact)
+	end
+
 	def total_contacts 
 		@contacts.length
 	end
