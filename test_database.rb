@@ -23,13 +23,24 @@ class TestDatabase < Test::Unit::TestCase
 	end
 
 	def test_delete_one_contact
+		#delete a contact from the database 
 		@db.add(@contact1)
 		@db.add(@contact2)
 		@db.delete(@contact1)
 		assert_equal (@db.contacts.include? @contact1), false
 	end
 
+	def test_display_attribute
+ 		@db.add(@contact1)
+		@db.add(@contact2)
 
+ 		assert_equal (@db.display_attribute("id")), ["ID", "1005484654"]
+ 		assert_equal (@db.display_attribute("firstname")), ["firstname", "Apoorv"]
+ 		assert_equal (@db.display_attribute("lastname")), ["lastname", "Gupta"]
+ 		assert_equal (@db.display_attribute("email")), ["email", "abc@frg.com"]
+ 		assert_equal (@db.display_attribute("notes")), ["notes", "Yeah!"]
+
+	end 
 end
 
 
